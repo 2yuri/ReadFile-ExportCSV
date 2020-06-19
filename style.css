@@ -1,0 +1,33 @@
+body{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  justify-content: center;
+  align-items: flex-start;
+  background: #ddd;
+}
+
+table {
+  margin-top: 100px;
+  width: 1000px;
+  border: 1px solid black;
+  border-collapse: collapse;
+  background: #fff;
+
+}
+
+tr {
+  text-align: center;
+}
+
+th {
+  min-width: 100px;
+  padding: 15px;
+}
+
+td, th{
+  border: 1px solid black;
+  padding: 15px;
+  align-items: flex-start;
+}
