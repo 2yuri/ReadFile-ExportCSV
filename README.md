@@ -10,7 +10,7 @@
 
 ## Output
 
-- You can download to CSV file
-- You can see the table in HTML
+- You can export to CSV file
+- You can view the table in HTML
 
 <a href="https://imgur.com/s0hvYIX"><img src="https://i.imgur.com/s0hvYIX.png" title="source: imgur.com" /></a>
