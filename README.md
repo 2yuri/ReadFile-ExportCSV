@@ -1,6 +1,6 @@
 # ReadFile&ExportCSV
 
-## This app read a txt file using fetch() and export a table into HTML and then you can transform into a csv file 💾
+## This app read txt file using fetch() and export a table into HTML and then you can transform into a csv file 💾
 
 ## Input
 
