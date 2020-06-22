@@ -1,3 +1,5 @@
+var totalCredit = '';
+var totalDebit = '';
 
 const fileSelector = document.getElementById('file-selector');
 fileSelector.addEventListener('change', (event) => {
@@ -17,7 +19,6 @@ fileSelector.addEventListener('change', (event) => {
 
     fetch(`./ext/${yuri[i]}`).then((res) =>
       res.text().then(data => {
-        console.log(data);
 
         if (data == '') {
           const table = document.getElementById("myTable");
@@ -35,12 +36,14 @@ fileSelector.addEventListener('change', (event) => {
           cell3.innerHTML = '0';
           cell4.innerHTML = '0';
           cell5.innerHTML = '0';
+
+          return
         }
 
-        const linesLength = data.match(/[^\n]*\n[^\n]*/gi).length;
+        const linesLength = data.match(/[^\n]*\n*/gi).length;
 
-        const array = data.match(/[^\n]*\n[^\n]*/gi);
-
+        const array = data.match(/[^\n]*\n*/gi);
+        console.log(array);
 
 
 
@@ -49,7 +52,27 @@ fileSelector.addEventListener('change', (event) => {
 
           const dados = array[i];
 
-          const [cnpj, qtd, desc, band, valor] = dados.split("|")
+
+          const [cnpj, qtd, desc, valor, band] = dados.split("|")
+
+
+          if (desc == 'CARTAO DE CREDITO') {
+            const convertValueCredit = valor.replace(/,/g, '.');
+            totalCredit = Number(totalCredit) + Number(convertValueCredit);
+            totalCredit = Number(totalCredit).toFixed(2);
+            document.getElementById('credit').innerHTML = 'VALOR CREDITO ' + totalCredit;
+
+          }
+
+          if (desc == 'CARTAO DE DEBITO') {
+            const convertValueDebit = valor.replace(/,/g, '.');
+            totalDebit = Number(totalDebit) + Number(convertValueDebit);
+            totalDebit = Number(totalDebit).toFixed(2);
+            document.getElementById('debit').innerHTML = 'VALOR DEBITO ' + totalDebit;
+
+          }
+
+
 
 
           const table = document.getElementById("myTable");
